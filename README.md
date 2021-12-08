@@ -2,17 +2,19 @@
 
 jupyter dockerspawner创建容器动态设置资源，可读数据库，并支持gpu调度
 
-#如果需要gpu调度,docker版本建议>19
+> 如果需要gpu调度,docker版本建议>19
 
 # install python_on_whales
 
 pip install python_on_whales
 
-# 添加依赖包
+# 导入依赖
 
 from python_on_whales.docker_client import DockerClient
 
 # 重写client,添加python_on_whales客户端
+
+```
 @property
 def client(self):
     """single global client instance"""
@@ -60,7 +62,10 @@ def gpu_docker(self, method, *args, **kwargs):
     """
     return self.executor.submit(self._gpu_docker, method, *args, **kwargs)
 
+```
+
 # 在create_object函数中添加以下代码
+```
 envs = create_kwargs["host_config"]["Binds"]
 docker_volume = [tuple(env.split(':', 2)) for env in envs]
 create_kwargs = dict(
@@ -77,10 +82,14 @@ create_kwargs = dict(
     #use docker random ports
     publish_all=True
 )
+```
 
 # 删除原始调度函数,替换为下面的函数
+
+```
 res = self.gpu_docker("create", **create_kwargs)
 obj = {self.object_id_key: str(res.result())}
+```
 
 #初学者在路上，加油李奋斗！
 
