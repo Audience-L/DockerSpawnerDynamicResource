@@ -69,9 +69,8 @@ def gpu_docker(self, method, *args, **kwargs):
 ```
 
 # 在create_object函数中添加以下代码
-```
-在create_kwargs生成后,重写create_kwargs,如果需要动态参数,需要配置数据库
-```
+>在create_kwargs生成后,重写create_kwargs,如果需要动态参数,需要配置数据库
+
 ```
 envs = create_kwargs["host_config"]["Binds"]
 docker_volume = [tuple(env.split(':', 2)) for env in envs]
