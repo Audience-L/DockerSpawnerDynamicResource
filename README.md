@@ -4,9 +4,13 @@ jupyter dockerspawner创建容器动态设置资源，可读数据库，并支�
 
 > 如果需要gpu调度,docker版本建议>19
 
-# install python_on_whales
+# Installation
 
+install python_on_whales
+
+```
 pip install python_on_whales
+```
 
 # 导入依赖
 
@@ -91,7 +95,7 @@ res = self.gpu_docker("create", **create_kwargs)
 obj = {self.object_id_key: str(res.result())}
 ```
 
-#初学者在路上，加油李奋斗！
-
 # DockerSpawner源码地址
 https://github.com/jupyterhub/dockerspawner
+
+初学者在路上，加油李奋斗！
