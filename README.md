@@ -1,6 +1,6 @@
 # DockerSpawnerDynamicResource
 
-jupyter dockerspawner创建容器动态设置资源，可读数据库，并支持gpu
+jupyter dockerspawner创建容器动态设置资源，可读数据库，并支持gpu调度
 # 如果需要gpu调度,docker版本建议>19
 
 # install python_on_whales
@@ -78,3 +78,7 @@ create_kwargs = dict(
 # 删除原始调度函数,替换为下面的函数
 res = self.gpu_docker("create", **create_kwargs)
 obj = {self.object_id_key: str(res.result())}
+
+# 初学者在路上，加油李奋斗！
+# 源码地址
+https://github.com/jupyterhub/dockerspawner
