@@ -115,7 +115,11 @@ res = self.gpu_docker("create", **create_kwargs)
 obj = {self.object_id_key: str(res.result())}
 ```
 
-# DockerSpawner源码地址
+# 感谢
+>dockerspawner
 https://github.com/jupyterhub/dockerspawner
+>python-on-whales
+https://github.com/gabrieldemarmiesse/python-on-whales
+
 
 初学者在路上，加油李奋斗！
